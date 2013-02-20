@@ -4,8 +4,8 @@ import 'package:dartflash/dartflash.dart';
 
 import 'ReactingSquare.dart';
 
-Sprite s=new Sprite();
 bool shouldAnimate = false;
+var allSquares=[];
 
 void main() {
   initialiseApplication();
@@ -33,8 +33,11 @@ void initialiseApplication()
       rs.x=25+ (j*50);
       rs.y=25+ (i*50);
       stage.addChild(rs);
+      //
+      allSquares.add(rs);
     }
   }
+  logThis(allSquares);
 }
 
 void onUserClick(MouseEvent e)
