@@ -13,22 +13,25 @@ class ReactingSquare extends Sprite
   bool _isMaxReached=true;
   bool _isAnimating=false;
   
-  ReactingSquare(){
-    this.logit(this);
+  int _recColor=0xFFFF0000;
+  
+  ReactingSquare(int colorValue){
+    //this.logit(this);
+    this._recColor=colorValue;
     this._init();
   }
   
   void _init()
   {
     BitmapData bitmapData = new BitmapData(50, 50);
-    bitmapData.fillRect(new Rectangle(0, 0, 50, 50), 0xFFFF0000);
-    bitmapData.fillRect(new Rectangle(5, 5, 40, 40), 0xFFFFFF00);//inside color
+    bitmapData.fillRect(new Rectangle(0, 0, 50, 50), this._recColor);
+    //bitmapData.fillRect(new Rectangle(5, 5, 40, 40), 0xFFFFFF00);//inside color
     Bitmap bitmap = new Bitmap(bitmapData);
     bitmap.x=-25;
     bitmap.y=-25;
     this.addChild(bitmap);
     //adding event listeners
-    this.addEventListener(MouseEvent.CLICK, _onClick);
+    this.addEventListener(MouseEvent.MOUSE_OVER, _onClick);
     //this.addEventListener(Event.ENTER_FRAME, onEachFrame);
   }
   
