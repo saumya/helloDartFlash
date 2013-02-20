@@ -1,0 +1,8 @@
+name: MakeSquare
+version: 1.0.0
+author: saumya
+description: Application to make Squares.
+homepage: http://www.saumyaray.com
+dependencies:
+  dartflash: any
+  browser: any
