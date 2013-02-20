@@ -16,7 +16,7 @@ void initialiseApplication()
   var renderLoop = new RenderLoop();
   renderLoop.addStage(stage);
   //
-  var colors=[0x000000FF,0xFFFFFFFF,0xFF00FFFF,0xFF0000FF,0xFFFF00FF];
+  var colors=[Color.Red,Color.DarkGreen,Color.Blue,Color.Yellow,Color.Pink];
   //
   for(int i =0; i<5; i++)
   {
