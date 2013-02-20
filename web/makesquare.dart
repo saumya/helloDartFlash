@@ -8,51 +8,22 @@ Sprite s=new Sprite();
 bool shouldAnimate = false;
 
 void main() {
-  /*
-  html.query("#sample_text_id")
-    ..text = "Click me!"
-    ..onClick.listen(reverseText);
-  */
   initialiseApplication();
-  
 }
-/*
-void reverseText(MouseEvent event) {
-  var text = html.query("#sample_text_id").text;
-  var buffer = new StringBuffer();
-  for (int i = text.length - 1; i >= 0; i--) {
-    buffer.add(text[i]);
-  }
-  html.query("#sample_text_id").text = buffer.toString();
-}
-*/
 void initialiseApplication()
 {
   var stage= new Stage('stage',html.query('#flash_container_id'));
   var renderLoop = new RenderLoop();
   renderLoop.addStage(stage);
+  //
   
-  ReactingSquare rs = new ReactingSquare();
-  rs.x=25;
-  rs.y=25;
-  stage.addChild(rs);
-  
-  
-  
-  stage.addEventListener(Event.ENTER_FRAME, onEachFrame);
-  // Add the Bitmap to the Stage
-  //stage.addChild(bitmap);
-  stage.addChild(s);
-}
-
-void onEachFrame(Event e){
-  if(shouldAnimate==true)
+  for(int i =0; i<10; i++)
   {
-    s.x += 1;
-  }else{
-    //s.x=0;
+    ReactingSquare rs = new ReactingSquare();
+    rs.x=25+ (i*50);
+    rs.y=25+ (0*50);
+    stage.addChild(rs);
   }
-  
 }
 
 void onUserClick(MouseEvent e)
