@@ -37,16 +37,11 @@ void initialiseApplication()
       allSquares.add(rs);
     }
   }
-  logThis(allSquares);
+  //logThis(allSquares[0]);
 }
 
 void onUserClick(MouseEvent e)
 {
-  /*
-  Sprite s = e.target;
-  s.x+=2;
-  logThis(s);
-  */
   if(shouldAnimate==true)
   {
     shouldAnimate=false;
