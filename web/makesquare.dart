@@ -19,7 +19,7 @@ void initialiseApplication()
   
   for(int i =0; i<5; i++)
   {
-    for(int j=0; j<10; j++)
+    for(int j=0; j<5; j++)
     {
       ReactingSquare rs = new ReactingSquare();
       rs.x=25+ (j*50);
