@@ -2,6 +2,11 @@ import 'dart:html' as html;
 import 'dart:math';
 import 'package:dartflash/dartflash.dart';
 
+import 'ReactingSquare.dart';
+
+Sprite s=new Sprite();
+bool shouldAnimate = false;
+
 void main() {
   /*
   html.query("#sample_text_id")
@@ -27,35 +32,42 @@ void initialiseApplication()
   var renderLoop = new RenderLoop();
   renderLoop.addStage(stage);
   
-  // Create a nice looking BitmapData
-
-  BitmapData bitmapData = new BitmapData(100, 100);
-  bitmapData.fillRect(new Rectangle(0, 0, 100, 100), 0xFFFF0000);
-  bitmapData.fillRect(new Rectangle(10, 10, 80, 80), 0xFF00FF00);
-
-  // Create a Bitmap with the nice looking BitmapData
-
-  Bitmap bitmap = new Bitmap(bitmapData);
-  bitmap.x = 10;
-  bitmap.y = 10;
-  //bitmap.rotation = PI / 8.0;
-  //bitmap.addEventListener(MouseEvent.CLICK, eventListener, useCapture)
-  Sprite s=new Sprite();
-  s.addChild(bitmap);
-  s.addEventListener(MouseEvent.CLICK, onUserClick);
-  //html.window.console.debug("debug message");
-  logThis('Debug');
-
+  ReactingSquare rs = new ReactingSquare();
+  rs.x=25;
+  rs.y=25;
+  stage.addChild(rs);
+  
+  
+  
+  stage.addEventListener(Event.ENTER_FRAME, onEachFrame);
   // Add the Bitmap to the Stage
   //stage.addChild(bitmap);
   stage.addChild(s);
 }
 
+void onEachFrame(Event e){
+  if(shouldAnimate==true)
+  {
+    s.x += 1;
+  }else{
+    //s.x=0;
+  }
+  
+}
+
 void onUserClick(MouseEvent e)
 {
-  //alert.show('Hello');
-  //console.log(e);
-  logThis(e);
+  /*
+  Sprite s = e.target;
+  s.x+=2;
+  logThis(s);
+  */
+  if(shouldAnimate==true)
+  {
+    shouldAnimate=false;
+  }else{
+    shouldAnimate=true;
+  }
 }
 
 void logThis(Object message)
