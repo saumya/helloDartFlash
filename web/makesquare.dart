@@ -17,12 +17,15 @@ void initialiseApplication()
   renderLoop.addStage(stage);
   //
   
-  for(int i =0; i<10; i++)
+  for(int i =0; i<5; i++)
   {
-    ReactingSquare rs = new ReactingSquare();
-    rs.x=25+ (i*50);
-    rs.y=25+ (0*50);
-    stage.addChild(rs);
+    for(int j=0; j<10; j++)
+    {
+      ReactingSquare rs = new ReactingSquare();
+      rs.x=25+ (j*50);
+      rs.y=25+ (i*50);
+      stage.addChild(rs);
+    }
   }
 }
 
